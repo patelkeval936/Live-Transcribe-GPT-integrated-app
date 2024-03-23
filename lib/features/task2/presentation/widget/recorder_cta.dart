@@ -37,14 +37,7 @@ class RecorderCTA extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(3.0),
           child: (state is RecorderInitial)
-              ? Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                      color: AppColors.primary,
-                      borderRadius: BorderRadius.circular(32),
-                      border: Border.all(color: Colors.black, width: 4)),
-                )
+              ? Icon(Icons.play_arrow_rounded)
               : (state is RecorderInProgress)
                   ? SizedBox(
                       height: 50,
@@ -63,10 +56,10 @@ class RecorderCTA extends StatelessWidget {
                   : (state is RecorderCompleted ||
                           state is RecorderPausedPlaying ||
                           state is RecorderCompletedPlaying)
-                      ? const Icon(Icons.play_circle_fill_rounded)
+                      ? const Icon(Icons.play_arrow_rounded)
                       : (state is RecorderPlaying ||
                               state is RecorderResumePlaying)
-                          ? const Icon(Icons.pause_circle)
+                          ? const Icon(Icons.pause_rounded)
                           : Container(),
         ),
       ),

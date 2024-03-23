@@ -44,30 +44,31 @@ class _RecorderWidgetState extends State<RecorderWidget> {
           controller.animateTo(controller.position.maxScrollExtent,
               duration: Duration(seconds: 1), curve: Curves.linear);
         }
-        return Column(
+        return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+              RecorderActionButtons(state: state,),
+              const SizedBox(width: 10,),
             if (state.recordedTime > 0)
-              SizedBox(
-                height: 100,
-                child: SingleChildScrollView(
-                  controller: controller,
-                  child: SquigglyWaveform(
-                    // url: audioFileUrl,
-                    // waveFormType: WaveFormType.material,
-                    // onWaveFormRender: (values) {
-                    //   // Optional: Perform any actions when the waveform is rendered.
-                    // },
-                    samples: [...state.waveformValues.map((e) => e.toDouble())],
+               SizedBox(
                     height: 100,
-                    width: state.waveformValues.length * 0.01 * context.screenWidth,
-                    maxDuration: Duration(seconds: state.recordedTime),
-                    elapsedDuration: Duration(seconds: state.playedTime),
+                    child: SingleChildScrollView(
+                      controller: controller,
+                      child: 
+                      SquigglyWaveform(
+                        // url: audioFileUrl,
+                        // waveFormType: WaveFormType.material,
+                        // onWaveFormRender: (values) {
+                        //   // Optional: Perform any actions when the waveform is rendered.
+                        // },
+                        samples: [...state.waveformValues.map((e) => e.toDouble())],
+                        height: 60,
+                        width: state.waveformValues.length * 0.01 * context.screenWidth,
+                        maxDuration: Duration(seconds: state.recordedTime),
+                        elapsedDuration: Duration(seconds: state.playedTime),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            const SizedBox(height: 40),
-            RecorderActionButtons(state: state),
           ],
         );
       },

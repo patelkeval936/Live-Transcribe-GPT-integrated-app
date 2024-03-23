@@ -14,20 +14,15 @@ class _IndRecordState extends State<IndRecord> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return const Column(
         children: [
           SizedBox(height: 56,),
           Text('Chat About China'),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8,vertical: 16),
+         Padding(
+            padding: EdgeInsets.symmetric(vertical: 16),
             child: RecorderContainer(),
           ),
-          Center(
-            child: CustomProgressBar(),
-          ),
         ],
-      ),
-    );
+      );
   }
 }

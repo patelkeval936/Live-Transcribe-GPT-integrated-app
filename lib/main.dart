@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (_) => sl<RecorderBloc>(),
         ),
-      ], child: const LiveTranscriptionPage(title: 'Live Transcribe',)),
+      ], child: const RecordingPage()),
     );
   }
 }

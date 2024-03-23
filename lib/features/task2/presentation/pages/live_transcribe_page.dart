@@ -31,7 +31,7 @@ class _LiveTranscriptionPageState extends State<LiveTranscriptionPage> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance?.addPostFrameCallback(onLayoutDone);
+    WidgetsBinding.instance.addPostFrameCallback(onLayoutDone);
   }
 
   @override
